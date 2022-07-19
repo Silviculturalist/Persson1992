@@ -68,8 +68,8 @@ double HagglundHeightPine(double heightm, double age, double age2, int regenerat
 
     }
 
-    double T26 = (-1/RK)*pow(log(1-(13/A2)),(1/RM2));
-    double T262 = T26*T26;
+    T26 = (-1/RK)*pow(log(1-(13/A2)),(1/RM2));
+    T262 = T26*T26;
 
     switch(regeneration) {
         case 1:
@@ -162,8 +162,8 @@ double HagglundTimeToBreastHeightPine(double h100, int regeneration, bool warnin
 
     }
 
-    double T26 = (-1/RK)*pow(log(1-(13/A2)),(1/RM2));
-    double T262 = T26*T26;
+    T26 = (-1/RK)*pow(log(1-(13/A2)),(1/RM2));
+    T262 = T26*T26;
 
     switch(regeneration) {
         case 1:

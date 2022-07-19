@@ -6,8 +6,8 @@ class PerssonStand{
         double H100{0};
         double TotalAge{0};
         double BHAge{0};
-        int regeneration{1};
-        int Period{0};
+        int Regeneration{1};
+        int Increment{0};
         int StemsBeforeThinning{0};
         int StemsAfterThinning{0};
         int StemsThinned{0};
@@ -32,22 +32,26 @@ class PerssonStand{
         double MortVOL{0};
 
         //Constructor
-        PerssonStand(double bam2, int stems, int ageBh, double h100, double latitude);
+        PerssonStand(double bam2, int stems, int bhAge, double h100, double latitude, int regeneration=1);
 
 
-}
+};
 
-PerssonStand::PerssonStand(double bam2, int stems, int bhAge, double h100, double latitude, regeneration = 1){
+PerssonStand::PerssonStand(double bam2, int stems, int bhAge, double h100, double latitude, int regeneration){
     BABeforeThinningM2 = bam2;
     StemsBeforeThinning = stems;
     BHAge = bhAge;
     H100 = h100;
     Latitude = latitude;
-    Period = (int) ((200/h100)+0.5); //casting to integer, +0.5 to properly round.
-    TotalAge = BHAge + HagglundTimeToBreastHeightPine(h100,);
+    Regeneration = regeneration;
+    Increment = (int) ((200/h100)+0.5); //casting to integer, +0.5 to properly round.
+    TotalAge = BHAge + HagglundTimeToBreastHeightPine(h100,Regeneration,false);
+    DominantHeight = HagglundHeightPine(H100,100-HagglundTimeToBreastHeightPine(h100,Regeneration,false),BHAge,Regeneration,false);
+    VolumeBeforeThinningM3 = PineVolume(BABeforeThinningM2,DominantHeight,StemsBeforeThinning,Latitude);
+    VOL_MAI = VolumeBeforeThinningM3/TotalAge;
+
+
 }
-
-
 
 int main()
 {
