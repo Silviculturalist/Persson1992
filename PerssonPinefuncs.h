@@ -46,7 +46,7 @@ double bark_Pine(
 }
 
 
-PineMortalityDiameterQuotient(
+double PineMortalityDiameterQuotient(
   double dominantHeight,
   int stems,
   bool thinned
@@ -59,7 +59,7 @@ PineMortalityDiameterQuotient(
     );
 }
 
-PineMortalityBAyr(
+double PineMortalityBAyr(
   double BAM2,
   double dominantHeight,
   double h100,
@@ -91,7 +91,7 @@ double avgBA = PineBAaverage(h100,dominantHeight)*1.3;
 }
 
 
-PineVolume(
+double PineVolume(
   double BAM2,
   double dominantHeight,
   int stems,
